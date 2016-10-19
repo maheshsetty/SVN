@@ -1,0 +1,351 @@
+                                                                -:SVN:-(starting to ending)
+                                                                ----------------------------
+																
+What is source code:-
+-------------------------																
+-->In computing, source code is any collection of computer instructions, (possibly with comments).
+   written using a human-readable programming language, usually as ordinary text.
+-->Source code is development part mostley.
+-->Heart of the organization.
+-->code related development.
+
+Earlier day how to manage the source code  (15 years back):-
+---------------------------------------------------------------
+EXAMPLE:-One Project start
+         3 persions
+		 10 modules
+		 each dev take module 3 4 3
+code developing-->ending the project-->end of the day-->project integrationcide and build(setup integrate envernoment)		 
+
+few years back organization using file system sharing
+file system sharing /10.110.4.225/project/
+                       |
+					   |
+					   |ecah dev inform could you store the source code
+ file system sharing:-
+  fss is a shared file systems let multiple users access the same files at the same time. Learn about the different products in this space and the categories ...
+  access the files or directory
+  file system sharing through network
+  File system sharing allways stored in latest source code files
+  
+  
+File system sharing it is so many problem facing like:-
+ No history
+ No parall acess
+ No security
+ Backup every day must and should be take
+ Disk space usage 
+
+1.No History:-
+
+              One Project (6 months)
+              3 persions
+		      10 modules
+		      each dev take module 3 4 3
+			  
+			  
+		                                                 |-----Client is very happy r1 release success.
+													     |     You will start next release.
+			                                             |                                  |---The same thing client is also happy next start
+                                                         |			                        |
+    Started release(version)                          (R 1.0)           3 months         (R 2.0)             3 months                       (R 3.0)
+		   Jan1                                       Jun30                                Sep                                               Dec
+			|------------------------------------------|------------------------------------|-------------------------------------------------|---------------------------|  
+			                                                                                                                                  |
+          R 3.0 Some thing wrong application functionality is not working .Client said could you please solved this issues with in 10 days----|
+           
+		   I need 1.0 version                        								
+		Roll backup previous version.
+    How to roll backup previous version.
+File system allways maintain only latest versions.
+backup 1.0 version it's ok no problem incase don't back up 1.0 --->it is very critical task
+                                                                |
+                                                                |-->No.of files
+																|-->No.of folders
+															    |-->No.of source files
+
+
+2.No parallell access:-
+ 
+                      
+                                          - -------------------------------------------
+										  |                                           |
+									      |/10.110.4.225/project/(helloworld.java.txt | 
+										  |                                           |
+										  ---------------------------------------------
+ 
+3 dev--->a,b,c
+a dev access project url--> a added some data in java file(some edit 1000 lines)-->a perform read and write.
+b dev access project url--> b added some data in same file(some edit 10 lines)---->b only read 
+c dev access project url-->like same
+
+No security:
+some data delete in the file -->it is impossable identyfy
+
+
+Now a days no.of SCM Tools in market:-
+-----------------------------------------------------
+--->Some time called as SCM,VCS,Source code management.
+
+--->One of the main advantage is resolved the file system sharing
+
+--->Our job is---->Setup the tool
+     		  ---->Administrator
+	    	  ---->Maintain the source code management
+			  ---->communicate with allways users
+			  
+SCM TOOLS:-
+-------------
+CVS
+SVN
+GIT
+HG
+TFS
+PERFORCE
+IBM CLEARCASE
+BAZAAR
+
+SVN:-
+----------
+-->svn is a open source tool.
+-->Founded in 2000 by CollabNet
+-->Subversion is developed as a project of the Apache Software Foundation.
+-->Success CVS
+
+
+Architecture:-
+-------------------
+                                                                     linux machine(server side)
+                                                        -----------------------------------------------
+														|              sub version                    |
+														|  			    |	|						  |
+														| 				|	|						  |
+														|			  apache httpd	                  |apache always port no 80
+														|											  |	
+														|											  |
+														|        									  |
+									         - ------- >-----------------------------------------------<--
+											|                           |                                |
+											|                           |                                |
+											|                           |                                | 
+                                        svn client                  svn client                      svn client          (client side) like windows machine
+                                    
+									      dev a                        dev b                          dev c
+ 
+
+VCS workflow:-----
+ 
+ Version Control System (VCS) is a software that helps software developers to work together and maintain a complete history of their work.
+ Allow developers to work simultaneously.
+ Maintain history of every version of everything
+ A VCS is divided into two categories.
+   1.Centralized Version Control System (CVCS)----->SVN
+   2.Distributed/Decentralized Version Control System (DVCS)------>GIT 
+   
+Version Control Terminologies:-
+ 
+ Repository:-
+ ---------------
+  A repository is the heart of any version control system. It is the central place where developers store all their work. 
+  Repository not only stores files but also the history. Repository is accessed over a network, acting as a server and version control tool acting as a client. 
+  Clients can connect to the repository, and then they can store/retrieve their changes to/from repository.
+  
+ Trunk:-
+ --------------
+ The trunk is a directory where all the main development happens and is usually checked out by developers to work on the project.
+ 
+ Tags :-
+ --------------
+ The tags directory is used to store named snapshots of the project. Tag operation allows to give descriptive and memorable names to specific version in the repository.
+ 
+ Branches:-
+ ---------------
+   Branch operation is used to create another line of development. It is useful when you want your development process to fork off into two different directions. 
+   For example, when you release version 5.0, you might want to create a branch so that development of 6.0 features can be kept separate from 5.0 bug-fixes 
+
+ Working copy:-
+------------------ 
+ Working copy is a snapshot of the repository. 
+ The repository is shared by all the teams, but people do not modify it directly. Instead each developer checks out the working copy.
+ 
+ SVN COMMANDS:-
+ --------------
+ Available subcommands:
+   add
+   auth
+   blame (praise, annotate, ann)
+   cat
+   changelist (cl)
+   checkout (co)
+   cleanup
+   commit (ci)
+   copy (cp)
+   delete (del, remove, rm)
+   diff (di)
+   export
+   help (?, h)
+   import
+   info
+   list (ls)
+   lock
+   log
+   merge
+   mergeinfo
+   mkdir
+   move (mv, rename, ren)
+   patch
+   propdel (pdel, pd)
+   propedit (pedit, pe)
+   propget (pget, pg)
+   proplist (plist, pl)
+   propset (pset, ps)
+   relocate
+   resolve
+   resolved
+   revert
+   status (stat, st)
+   switch (sw)
+   unlock
+   update (up)
+   upgrade
+   
+SVN Directory structure:-
+Depending on type release process the SVN structure will be decided. The conventional SVN structure is shown below
+
+svn\trunk,
+svn\branches,
+svn\tags
+
+svn copy
+We can create the branches and tags using svn copy comand
+svn copy <source branch url> <destination branch url> -m "comment"
+
+svn switch
+This command is used to switch between the branches without checking out the codebase
+svn switch http://localhost/branches/branch1
+
+svn blame: 
+svn blame — Show author and revision information inline for the specified files or URLs. svn blame http://localhost/svn/test.txt
+
+SVN Administration
+SVN Administration involves below activities
+? Creating repository
+? Creating authentication and authorization repository
+? Provide user credentials to the developers
+? Giving access to users on respective repository locations
+? Maintaining groups in svn access file
+? Creating branches for new releases
+? Help the developers while merging the code
+? Take the dump of SVN repository on frequent intervals
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+ 
+ 
